@@ -11,6 +11,9 @@ def highest_affinity(site_list, user_list, time_list):
     # I.e., if the highest affinity pair is "foo" and "bar"
     # return ("bar", "foo").
     site_visit = dict()
+    best_tuple = ("", "")
+    best_shared = -1
+
     for site in site_list:
         site_visit[site] = []
 
@@ -49,8 +52,6 @@ def highest_affinity(site_list, user_list, time_list):
     for i in range(0, len(site_list)):
             site_visit[site_list[i]].append(user_list[i])
 
-    best_tuple = ("", "")
-    best_shared = -1
     for key in site_visit:
         for key2 in site_visit:
             if key != key2:
